@@ -1,0 +1,60 @@
+$gridMain: (
+	flow: ltr,
+	math: fluid,
+	output: float,
+	gutter-position: after,
+	container: $container-width,
+	container-position: center,
+	columns: $total-columns,
+	gutters: .25,
+	column-width: false,
+	global-box-sizing: border-box,
+	last-flow: to,
+	debug: (
+		image: hide,
+		color: rgba(#66f, .25),
+		output: background,
+		toggle: top right,
+	)
+);
+
+$gridNoGutter: (
+	container: auto,
+	columns: 12,
+	gutters: 0,
+	gutter-position: after,
+	math: fluid,
+	output: float,
+);
+
+$gridSixteen: (
+	container: auto,
+	columns: 16,
+	gutters: .25,
+	gutter-position: after,
+	math: fluid,
+	output: float,
+);
+
+$gridTen: (
+	container: auto,
+	columns: 10,
+	gutters: .25,
+	gutter-position: after,
+	math: fluid,
+	output: float,
+);
+
+.ctn-main {
+	@include container($gridMain);
+	@include breakpoint($smaller-devices) {
+		padding: 0 25px;
+	}
+	@include breakpoint($mobile) {
+		// overflow-x: hidden;
+		overflow: hidden;
+	}
+	@include breakpoint($larger-devices) {
+		max-width: 1100px;
+	}
+}

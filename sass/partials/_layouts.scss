@@ -1,0 +1,268 @@
+@import "pages/home";
+@import "pages/search-news";
+@import "pages/misc";
+
+.site-header {
+	position: relative;
+	@include breakpoint($mobile) {
+		background-color: $color-bg-light;
+		transition: background 1s;
+		margin: 0;
+		&.toggled {
+			background-color: $color-bg-dark;
+		}
+	}
+	.jumbotron {
+		
+	}
+	.ctn-switchers,
+	.ctn-secondary-nav,
+	.ctn-main-header,
+	.ctn-social {
+		position: absolute;
+		z-index: 1;
+		width: 100%;
+	}
+	.ctn-switchers {
+		background-color: $color-bg-topheader; 
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 35px;
+		padding-top: 11px;
+		.ctn-main {
+			@include breakpoint($mobile) {
+				padding: 0;
+			}
+		}
+	}
+	.ctn-secondary-nav {
+		top: 50px;
+	}
+	.ctn-main-header {
+		top: 80px;
+		z-index: 2;
+		@include breakpoint($mobile) {
+			top: 35px;
+		}
+		.ctn-main {
+			background-color: $color-bg-body;
+			height: 72px;
+			padding: 0;
+			@include layout($gridSixteen);
+			@include breakpoint($mobile) {
+				height: 80px;
+				overflow: visible;
+			}
+		}
+	}
+	.site-switcher {
+		float: left;
+		@include font-size(1.1);
+		@include breakpoint($mobile) {
+			@include font-size(1.0);
+			float: none;
+			text-align: center;
+		}
+		.label,
+		ul,
+		li {
+			display: inline-block;
+		}
+		.label {
+			color: $color-grey;
+			font-weight: bold;
+			margin-right: 16px;
+		}
+		li {
+			margin-right: 29px;
+			&:last-child {
+				margin-right: 0;
+			}
+			a {
+				color: $color-link;
+				font-weight: normal;
+			}
+			&.selected {
+				a {
+					color: $color-menu-light-link;
+					font-weight: bold;
+				}
+			}
+		}
+	}
+
+	.ctn-social {
+		top: 154px;
+		right: 7px;
+		width: auto;
+		@include breakpoint($mobile) {
+			display: none;
+		}
+		li {
+			list-style-type: none;
+			margin-bottom: 4px;
+		}
+		@include social-icons;
+	}
+	.lang-switcher {
+		float: right;
+		@include font-size(1.1);
+		@include breakpoint($mobile) {
+			display: none;
+		}
+		ul {
+			float: left;
+			margin-right: 22px;
+		}
+		li {
+			display: inline-block;
+			padding: 0 8px;
+			text-transform: uppercase;
+			border-radius: 2px;
+			&.selected {
+				background-color: $color-link;
+				color: $color-bg-body;
+			}
+			a {
+				color: $color-link;
+			}
+			
+		}
+	}
+	.site-branding {
+		@include span(4 of 16);
+		@include breakpoint($mobile) {
+			margin-top: 10px;
+		}
+		.site-title {
+			margin: 10px 0 0 18px;
+			color: red;
+			@include breakpoint($mobile) {
+				margin: 7px 0 8px 18px;
+			}
+		}
+	}
+	.site-search {
+		@include span(last 1 of 16);
+		@include breakpoint($mobile) {
+			@include full;
+			position: absolute;
+			top: 78px;
+		}
+	}
+}
+
+.site-indicator {
+    margin: -24px -7px;
+    position: absolute;
+    width: 103%;
+    z-index: 2;
+    overflow: hidden;
+	top: 59px;
+    .si-left {
+        box-sizing: border-box;
+        border: 7px solid black;
+        width: 1%;
+        float: left;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+        border-left: 0 none;
+    }
+
+    .si-right{
+        box-sizing: border-box;
+        border: 7px solid black;
+        width: 99%;
+        float: left;
+        border-left-color: transparent;
+        border-bottom-color: transparent;
+        border-right: 0 none;
+    }
+}
+
+.site-footer {
+	background-color: $color-link-top-nav;
+	padding-top: 24px;
+}
+
+/* IE8 Background Size Polyfill */
+.no-backgroundsize .header-info .header-image-text {
+	background-repeat: no-repeat;
+	-ms-behavior: url(polyfills/backgroundsize.min.htc);
+}
+
+
+.content-area {
+	@include span(last 9 of 12);
+	padding: 0 0 30px;
+	@include breakpoint($mobile) {
+		@include full;
+	}
+	&.full-width {
+		@include full;
+	}
+}
+
+.site-main {
+	
+}
+
+.site-content .widget-area {
+	overflow: hidden;
+	padding: 20px 0 20px;
+	@include span(3 of 12);
+	@include breakpoint($mobile) {
+		@include full;
+		padding: 0;
+	}
+}
+
+#secondary {
+	@include breakpoint($mobile) {
+		overflow: visible;
+		margin: 0 -25px;
+		float: none;
+		width: auto;
+	}
+}
+
+.byline,
+.updated:not(.published){
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 0.6rem 0 1.5rem;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+	display: none;
+}
+
+.comment-content a {
+	word-wrap: break-word;
+}
+.bypostauthor {
+	display: block;
+}
+
+
+/* Full width no sidebar */
+.no-sidebar .site-main {
+	margin: 0;
+	@include full;
+}

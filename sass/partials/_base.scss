@@ -1,0 +1,478 @@
+// @import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700|Istok+Web:400,700|Oswald:400,300);
+
+/* Basic HTML Elements */
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {	
+	height:100%;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	background-color: $color-bg-body;
+	margin: 0;
+	@include breakpoint($mobile) {
+		overflow-x: hidden;
+	}
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	color: $color-text-main;
+	font-family: $font-main;
+	@include font-size(1.1);
+	font-weight: 400;
+	line-height: $font-line-height-body;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	clear: both;
+	margin: 0;
+	font-weight: 500;
+	color: $color-menu-link;
+}
+
+h1 {
+	@include font-size(2.4);
+	font-family: $font-accent;
+}
+
+h2 {
+	@include font-size(1.8);
+	font-family: $font-accent;
+}
+
+h3 {
+	@include font-size(1.4);
+	font-family: $font-accent;
+	font-weight: normal;
+}
+
+h4 {
+	color: $color-text-dark;
+	@include font-size(1.4);
+	font-weight: bold;
+}
+
+h5 {
+	color: $color-primary-action;
+	@include font-size(2.0);
+	font-family: $font-accent;
+	text-transform: uppercase;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+dfn, cite, em, i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	@include font-size(1.5);
+	margin-bottom: 0;
+	max-width: 100%;
+	overflow: auto;
+	padding: 0;
+	color: $color-text-main;
+	font-family: $font-main;
+	font-weight: 400;
+	line-height: $font-line-height-body;
+	white-space: normal;
+}
+
+code, kbd, tt, var {
+	@include font-size(1.5);
+}
+
+abbr, acronym {
+	cursor: help;
+}
+
+mark, ins {
+	text-decoration: none;
+}
+
+sup,
+sub {
+	font-size: 75%;
+	height: 0;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	bottom: .5ex;
+}
+
+sub {
+	top: .5ex;
+}
+
+small {
+	font-size: 75%;
+}
+
+big {
+	font-size: 125%;
+}
+
+a {
+	color: $color-link;
+	text-decoration: none;
+	&:visited {
+		color: $color-link-visited;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color-link-hover;
+		text-decoration: underline;
+		outline: 0 none;
+	}
+}
+
+ul, ol {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+hr {
+	color: red;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+	border: 0 none; /* IE8 */
+	.ctn-img & {
+		width: 100%;
+	}
+}
+
+figure {
+	margin: 0;
+}
+
+table {
+	width: 100%;
+	@include font-size(1.4);
+	padding: 0;
+	border-bottom: 4px solid $color-border-light;
+	border-spacing: 0;
+    border-collapse: separate;
+    @include breakpoint($mobile) {
+		border-bottom: 0 none;
+	}
+	thead,
+	tfoot {
+		th,
+		td {
+			font-weight: normal;
+			padding: 9px 0 8px 0;
+			background-color: $color-bg-form;
+			// color: #fff;
+			border-right: 1px solid #fff;
+			&:last-child {
+				border-right: 0 none;
+			}
+			&:hover {
+				.sort {
+					opacity: 0.3;
+				}
+			}
+			.sort {
+				float: right;
+				width: 8px;
+				height: 16px;
+				margin: 3px 6px 0 0;
+				background: transparent url(img/icons/icon-sorting.png) 0 0 no-repeat;
+			}
+		}
+	}
+	thead,
+	tfoot {
+		position: relative;
+		clip: auto;
+		height: auto;
+		width: auto;
+		overflow: auto;
+		@include breakpoint($mobile) {
+			position: absolute;
+			clip: rect(1px, 1px, 1px, 1px);
+			padding: 0;
+			border: 0;
+			height: 1px; 
+			width: 1px; 
+			overflow: hidden;
+		}
+		th,
+		td {
+			text-align: center;
+			font-weight: normal;
+			strong {
+				font-weight: normal;
+			}
+		}		
+	}
+  
+	tr {   
+		display: table-row; 
+	}
+
+	th,
+	td {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	tbody,
+	tr,
+	th,
+	td {
+		@include breakpoint($mobile) {
+			display: block;
+			padding: 0;
+			text-align: left;
+			white-space: normal;
+		}
+	}	
+
+	tbody {
+		display: table-row-group; 
+
+		tr {
+			display: table-row;
+			@include breakpoint($mobile) {
+				display: block;
+			}
+			&:nth-child(even) {
+				background-color: lighten($color-bg-form, 4%);
+				@include breakpoint($mobile) {
+					background-color: transparent;
+				}
+			}
+			&:nth-child(odd) {
+				background-color: $color-bg-body;
+				@include breakpoint($mobile) {
+					background-color: transparent;
+				}
+			}
+			&:last-child {
+				th {
+					border-bottom: 0 none;
+				}
+			}
+		}
+		th {
+			font-weight: normal;
+			padding: 9px 9px 8px 9px;
+			background-color: $color-bg-form;
+			min-width: 120px;
+			border-bottom: 1px solid #fff;
+			text-align: left;
+		}
+
+		td {
+			padding: 9px 9px 8px 9px;
+			@include breakpoint($mobile) {
+				padding: 3px 9px 2px 0;
+				text-align: right;
+				@include clearfix;
+				width: 100%;
+				border-top: 0 none;
+				a {
+					float: left;
+					width: 100%;
+					text-align: center;
+					img {
+						width: 100%;
+					}
+				}
+				&:first-child {
+					background-color: $color-bg-form;
+					margin-top: 12px;
+				}
+			}
+		}
+
+		td[data-title] {
+			&:before {
+				display: none; 
+				content: none;
+				@include breakpoint($mobile) {
+					display: block;
+					content: attr(data-title);
+					float: left;
+					padding-left: 9px;
+					color: lighten($color-text-main, 20%);
+				}
+			}
+		}
+	}
+}
+
+::placeholder {
+	font-style: italic;
+}
+
+
+/* Basic Layout Elements */
+
+.centered {
+	display: table;
+	margin: 0 auto;
+}
+
+.gallery-items {
+	overflow: hidden;
+	margin-top: 0;
+	padding-top: 17px;
+}
+
+.gallery-unit {
+	@include gallery-page-block-rules;
+	@include breakpoint($mobile){
+		@include gallery(12 of 12);
+		/* We'll approach this issue on individual basis */
+		//clear: both !important;
+	}
+}
+
+.ctn-intro-blurb {
+	border-bottom: 1px solid $color-border-light;
+	position: relative;
+}
+
+.ctn-gallery-full {
+	padding-top: 23px;
+	& > *:first-child {
+		margin-top: 0;
+	}
+	p {
+		@include font-size(1.4);
+		margin-top: 0;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	h2 {
+		& + p {
+			margin: 0;
+			& + h2 {
+				margin-top: 15px !important;
+			}
+		}
+		& ~ h2 {
+			border-top: 1px solid $color-border-light;
+			padding-top: 10px;
+		}
+	}
+	.gallery-items {
+		// margin-top: 10px;
+		border-top: 0 none;
+		h2 {
+			margin: 0 0 4px;
+		}	
+	}  
+	.gallery-unit {
+		@include gallery(12 of 12);
+		clear: both !important;
+		margin-bottom: 22px;
+		.thumb-link {
+			@include span(4 of 12);
+			& + h5 {
+				@include span(last 8 of 12);
+				clear: none;
+				& + p {
+					@include span(last 8 of 12);
+					clear: none;
+				}
+			}
+		}
+		 h5 {
+			font-family: $font-main;
+			@include font-size(1.4);
+			font-weight: bold;
+			text-transform: none;
+			a {
+				color: $color-text-main;
+			}
+		}	
+		
+	}
+}
+
+.back-to-landing {
+	@include font-size(1.2);
+	display: block;
+	margin: 15px 0;
+	&:before {
+		content: "\f104";
+		font-family: FontAwesome;
+		margin: 0 6px 0 0;
+		float: left;
+		color: $color-text-main;
+	}
+}
+
+.text-link {
+	display: block;
+	clear: left;
+	&:before {
+		content: "\f105";
+		font-family: FontAwesome;
+		margin: 1px 4px 0 0;
+		float: left;
+		color: $color-text-main;
+	}	
+}
+

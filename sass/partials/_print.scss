@@ -1,0 +1,14 @@
+@media print {
+	* {
+		color: #000 !important;
+	}
+	img {
+		max-width: 300px;
+	}
+	header,
+	.header-info,
+	.widget-area,
+	footer {
+		display: none !important;
+	}
+}

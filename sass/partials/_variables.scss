@@ -1,0 +1,71 @@
+/* -------------------------------------------------------------------------*/
+/* Variables */
+
+// Fonts
+$font-main: Verdana, Geneva, sans-serif;
+$font-accent: "akzidenz-grotesk", serif;
+$font-size: 1.1;
+$font-line-height-body: 1.8;
+
+// Colours
+$color-bg-body: #fff;
+$color-bg-light: #e6e6e6;
+$color-bg-dark: #000;
+$color-bg-form: #eeeeef;
+
+$color-bg-jumbotron: #4ba949;
+$color-bg-btn: #dc8c2e;
+
+$color-link: #b42c33;
+$color-link-visited: #b42c33;
+$color-link-hover: #b42c33;
+$color-link-top-nav: #333;
+$color-menu-link: #555;
+$color-menu-light-link: #fff;
+
+$color-primary-action: #b42c33;
+
+$color-text-main: #565b61;
+$color-text-black: #000;
+$color-grey: #aaa;
+$color-dark-grey: #3f3f3f;
+$color-light-grey: #f5f5f5;
+$color-text-dark: #333;
+$color-text-input: #666;
+$color-text-input-focus: #111;
+$color-accent-bg: #c80000;
+$color-bg-topheader: #000;
+
+$color-after-dot: #80adc5;
+
+$color-border: #454545;
+$color-border-light: #ddd;
+$color-bg-footer: #202020;
+$color-contact-bg-footer: #333;
+$color-menu-bg-footer: #333;
+$color-error: lighten($color-primary-action, 20%);
+
+//Structure
+$size-site-main: 100%;
+$size-site-sidebar: 25%;
+
+
+// SUSY Vars
+$total-columns: 12;
+$container-width: 960px;
+
+
+// SUSY Breakpoints Vars
+$xxsmall: 320px 479px;
+$xsmall: 480px 599px;
+$small: 600px 767px;
+$medium: 768px 1023px;
+$large: 1024px 1199px;
+$xlarge: 1200px 1919px;
+$xxlarge: 1920px;
+
+$mobile: max-width 767px;
+$smaller-devices: max-width 1023px;
+$bigger-devices: 1023px;
+$desktop: 768px;
+$larger-devices: 1200px;

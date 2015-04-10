@@ -1,0 +1,44 @@
+.gallery-solutions {
+	h2 {
+		border-top: 1px solid $color-border-light;
+		padding-top: 4px;
+		&:first-child {
+			border-top: 0 none;
+		}
+	}
+}
+
+.gallery-search-results .gallery-unit .thumb-link + h5 ~ p {
+	width: 100%;
+	float: none;
+}
+
+.gallery-all-case-studies,
+.gallery-all-solutions {
+	padding-top: 9px;
+	.gallery-unit {
+		margin-bottom: 4px;
+		a {
+			@include font-size(1.4);
+		}
+	}
+}
+
+/* Product Landing Page Page */
+
+.page-product-landing .gallery-items {
+	border-top: 0 none;
+}
+
+.page-product-landing .gallery-unit img {
+	width: auto;
+	max-width: none;
+	height: 165px;
+	margin: 0 auto;
+}
+
+/* Single Case Study Page */
+
+.page-single-case-study {
+	
+}

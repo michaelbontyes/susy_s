@@ -1,0 +1,157 @@
+/* -------------------------------------------------------------------------*/
+/* Mixins */
+
+// Clearfix
+@mixin clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+// Styling Select boxes
+@mixin select-style {
+	background-color: $accentColor;
+	border-color: $accentColor;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.2rem;
+	height: 30px;
+	@include border-radius(0);
+}
+
+// Vertical Align
+@mixin vertical-align {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+// My own mixin for gallery-like layout
+@mixin span-def($number-of-columns) {
+	@include span(($total-columns/$number-of-columns) of $total-columns);
+	&:nth-child(#{$number-of-columns}n + #{$number-of-columns}) {
+		@include last;
+	}
+}
+
+// Adding a dot (.)
+@mixin after-dot {
+	&:after {
+		content: '\00B7';
+		color: $color-after-dot;
+		font-weight: bold;
+		margin: 0 8px 0 12px;
+		float: right;
+	}
+	&:last-child {
+		&:after {
+			content: '';
+			margin: 0;
+		}
+	}
+}
+
+//social icons styles 
+@mixin social-icons {
+	a {
+		background-color: $color-link;
+		color: $color-menu-light-link;
+		display: block;
+		width: 32px;
+		height: 32px;
+		line-height: 32px;
+		text-align: center;
+		border-radius: 16px;
+		&:hover {
+			text-decoration: none;
+		}
+		[class^="icon-"],
+		[class*=" icon-"] {
+			@include font-size(2.0);
+			&:before {
+				margin-top: 5px;
+			}
+		}
+	}
+}
+
+// Basic styles for susy gallery + page blocks
+@mixin gallery-page-block-rules {
+	margin-bottom: 15px;
+	.thumb-link {
+		width: 100%;
+		display: block;
+		overflow: hidden;
+		margin-bottom: 0;
+		background-size: 100%;
+		background-position: center center;
+		background-repeat: no-repeat;	
+	}
+	h5 {
+		color: $color-text-black;
+		margin: 8px 0 3px;
+		font-weight: normal;
+		a {
+			color: $color-link;
+		}
+		& ~ p {
+			@include font-size(1.4);
+		    margin: 0;   
+		}
+	}
+	img {
+		width: 100%;
+		display: block;
+	}
+}
+
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1.6) {
+	font-size: ($sizeValue * 10) + px;
+	font-size: $sizeValue + rem;
+}
+
+// Box model
+@mixin box-sizing($box-model) {
+	-webkit-box-sizing: $box-model; // Safari <= 7
+	-moz-box-sizing: $box-model; // Firefox <= 19
+	box-sizing: $box-model;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin: 0 auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+}
+
+// Flicker animation for loading text
+@keyframes flickerAnimation {
+	0%   { opacity:1; }
+	50%  { opacity:0; }
+	100% { opacity:1; }
+}
+@-o-keyframes flickerAnimation{
+	0%   { opacity:1; }
+	50%  { opacity:0; }
+	100% { opacity:1; }
+}
+@-moz-keyframes flickerAnimation{
+	0%   { opacity:1; }
+	50%  { opacity:0; }
+	100% { opacity:1; }
+}
+@-webkit-keyframes flickerAnimation{
+	0%   { opacity:1; }
+	50%  { opacity:0; }
+	100% { opacity:1; }
+}

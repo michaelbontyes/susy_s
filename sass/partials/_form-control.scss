@@ -1,0 +1,138 @@
+/* ==========================================================================
+   Form control
+   ========================================================================== */
+
+/**
+ * Form control component
+ *
+ * N.B. Do not use this component on a `select` element since it is not easily
+ * stylable.
+ *
+ * Supported controls:
+ *   input: text, search, email, number, url, tel, date, month, week, time
+ *   input: checkbox, radio - with modifiers
+ *   select: normal, multiple
+ *   textarea
+ *
+ * Example HTML:
+ *
+ * <p>
+ *   <input class="FormControl" type="text">
+ * </p>
+ * <p>
+ *   <select class="FormControl">
+ *     <option value="…">…</option>
+ *     <option value="…">…</option>
+ *     <option value="…">…</option>
+ *   </select>
+ * </p>
+ * <p>
+ *   <select multiple class="FormControl">
+ *     <option value="…">…</option>
+ *     <option value="…">…</option>
+ *     <option value="…">…</option>
+ *   </select>
+ * </p>
+ * <p>
+ *   Check me:
+ *   <input class="FormControl--checkbox" type="checkbox">
+ * </p>
+ * <p>
+ *   Radio:
+ *   <input class="FormControl--radio" type="radio">
+ * </p>
+ * <p>
+ *   <textarea class="FormControl"
+ *             rows="10">hello</textarea>
+ * </p>
+ */
+
+/* Variables
+   ========================================================================== */
+
+/**
+ * Bits.sass components namespace
+ */
+
+$bits-components-ns: 'bits-' !default;
+
+/* Component
+   ========================================================================== */
+
+/**
+ * 1. Normalize `box-sizing` across all input types
+ * 2. Fill its container by default.
+ * 3. Correct font family not being inherited in all browsers.
+ * 4. Correct font size not being inherited in all browsers.
+ */
+
+.#{$bits-components-ns}FormControl {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box; /* 1 */
+  position: relative;
+  margin: 0;
+  padding: 0.4em 0.5em;
+  width: 100%; /* 2 */
+  vertical-align: middle;
+
+  font: inherit; /* 3 */
+  font-size: 100%; /* 4 */
+
+  border: 1px solid;
+  background: transparent;
+}
+
+/**
+ * This is needed due to a specifity issue with normalize.css
+ */
+
+.#{$bits-components-ns}FormControl[type="search"] {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+
+/* FormControl states */
+
+/**
+ * These two rules need to be separated due to IE8 bug
+ */
+
+.#{$bits-components-ns}FormControl:disabled {
+  cursor: default;
+}
+
+.#{$bits-components-ns}FormControl.is-disabled {
+  cursor: default;
+}
+
+/* Component modifiers
+   ========================================================================== */
+
+/**
+ * Checkbox and radio controls
+ *
+ * 1. Pull the control up by 1px so it is correctly aligned.
+ * 2. IE9- specific.
+ */
+
+.#{$bits-components-ns}FormControl--checkbox,
+.#{$bits-components-ns}FormControl--radio {
+  margin-top: -1px; /* 1 */
+  margin-top: 0\9; /* 2 */
+  padding: 0;
+  width: auto;
+
+  border: 0 none;
+}
+
+/**
+ * Radio control
+ *
+ * 1. Radio needs a bit more negative margin.
+ * 2. Again, not on IE9-.
+ */
+
+.#{$bits-components-ns}FormControl--radio {
+  margin-top: -2px; /* 1 */
+  margin-top: 0\9; /* 2 */
+}

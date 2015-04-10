@@ -1,0 +1,478 @@
+/* top navs */
+.main-navigation {
+	@include span(11 of 16);
+	@include breakpoint($mobile) {
+		@include full;
+		position: relative;
+		.current_page_ancestor,
+		.current_page_parent {
+			& > ul {
+				display: block;
+			}
+			.current_page_item {
+				background-color: $color-bg-dark;
+			}
+		}
+	}
+	
+	.nav {
+		@include breakpoint($mobile) {
+			margin-top: 0;
+		}
+		.menu-main-navigation-container {
+			@include breakpoint($mobile) {
+				margin: 2px 0 0;
+			}
+		}
+	}
+	.nav-menu {
+		float: right;
+		// margin-top: 23px;
+		@include breakpoint($mobile) {
+			margin-top: 0;
+		}
+		@include breakpoint($desktop) {
+			display: block !important;
+		}
+		& > li {
+			padding: 0;
+			margin: 0 30px 0 0;
+			list-style-type: none;
+			display: inline-block;
+			transition-property: none;
+			transition-duration: 0;
+			&:last-child {
+				margin-right: 0;
+			}
+			@include breakpoint($xlarge) {
+				margin: 0 35px 0 0;
+			}
+
+			@include breakpoint($medium) {
+				margin: 0 10px 0 0;
+			}
+
+			@include breakpoint($mobile) {
+				display: block;
+				text-align: center;
+				margin: 0;
+			}
+			& > a {
+				padding: 24px 0;
+				@include breakpoint($medium) {
+					padding: 26px 0;
+					@include font-size(1.2);
+				}
+				@include breakpoint($mobile) {
+					padding: 0;
+				}
+			}
+		}
+	}
+	ul {
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+		margin-left: -23px;
+		@include breakpoint($mobile) {
+			display: none;
+			margin-left: 0;
+			width: 100% !important;
+		}
+
+		li {
+			padding: 0;
+			margin: 0 15px 0 0;
+			list-style-type: none;
+			display: inline-block;
+			&:last-child {
+				margin-right: 0;
+			}
+			@include breakpoint($mobile) {
+				padding: 0;
+				background-color: #212121;
+				display: block;
+				text-align: center;
+				margin: 10px 0 10px 0;
+			}
+			a {
+				color: $color-menu-link;
+				@include font-size(1.4);
+				font-family: $font-accent;
+				text-decoration: none;
+				@include breakpoint($mobile) {
+					float: none;
+					text-align: center;
+					color: $color-bg-body !important;
+					@include font-size(1.4);
+					height: 39px;
+					line-height: 39px;
+				}
+			}
+			&:nth-child(2) {
+				& > ul {
+					& > li  {
+						& > a {
+							// to accomodate long product names
+							width: 220px;
+							@include breakpoint($mobile) {
+								width: 100%;
+							} 
+						}
+					}
+				}
+			}
+			ul {
+				&.sub-menu {
+					background-color: $color-bg-body;
+					padding: 14px 0;
+					@include breakpoint($mobile) {
+						padding: 0;
+					}
+				}
+				& > li {
+					padding: 7px 23px 6px;
+					margin: 0;
+					@include breakpoint($mobile) {
+						padding: 0;
+						background-color: #313131;
+					}
+					&.menu-item-has-children:hover,
+					&:hover {
+						background-color: $color-link;
+						& > a {
+							color: $color-bg-body;
+						}
+						&:before {
+							color: $color-bg-body;
+						}
+						@include breakpoint($mobile) {
+							background-color: #000;
+							& > a {
+								color: inherit;
+							}
+							&:before {
+								color: inherit;
+							}
+
+						}
+					}
+					& > a {
+						width: 175px;
+						@include font-size(1.1);
+						font-family: $font-main;
+						color: $color-link;
+						@include breakpoint($mobile) {
+							width: 100%;
+						} 
+					}
+				}
+			}
+		}
+		ul {
+			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+			float: left;
+			position: absolute;
+			top: 72px;
+			left: -999em;
+			z-index: 99999;
+			background-color: #fff;
+
+			// ul {
+			// 	left: -999em;
+			// 	top: -14px;
+			// }
+
+			// li {
+			// 	&:hover > ul {
+			// 		left: 244px;
+			// 	}
+			// }
+
+			a {
+				// width: 265px;
+				img {
+					display: none;
+				}
+				@include breakpoint($mobile) {
+					width: auto;
+				}
+
+			}
+
+			a:hover {
+			}
+		}
+
+		li:hover > ul {
+			left: 0;
+		}
+		li:last-child:hover > ul {
+			left: auto;
+			right: -2em;
+		}
+	}
+
+	li {
+		float: left;
+		position: relative;
+		&:hover {
+			@include breakpoint($mobile) {
+				background-color: $color-bg-dark;
+			}
+		}
+		&:first-child {
+			@include breakpoint($mobile) {
+				// border-top: 1px solid $color-border;
+			}
+		}
+		&:last-child {
+			@include breakpoint($mobile) {
+				border-bottom: 0 none;
+			}
+		}
+		&:hover > a {
+		
+		}
+
+		@include breakpoint($mobile) {
+			display: block;
+			float: none;
+			border-bottom: 1px solid $color-border;
+			
+			.sub-menu {
+				// border-top: 1px solid #fff;
+			}
+			ul {
+				position: static;
+				float: none;
+				display: none;
+				box-shadow: none;
+				a {
+					padding-left: 1em;
+				}
+				ul {
+					a {
+						padding-left: 2em;
+					}
+					ul {
+						li {
+							background-color: #777;
+						}
+						a {
+							padding-left: 3em;
+						}
+					}
+				}
+			}
+		}
+	}
+	a {
+		display: block;
+		text-decoration: none;
+	}
+}
+
+.menu.nav-menu {
+	li {
+		&.menu-item-has-children,
+		&.page_item_has_children {
+			.more {
+				float: left;
+				width: 50px;
+				text-align: center;
+				// background-color: #eee;
+				cursor: pointer;
+				height: ($font-size * $font-line-height-body * 10) + px;
+				&:before {
+					content: '+';
+					display: block;
+					color: $color-bg-body;
+				}
+
+				@include breakpoint($mobile) {
+					position: absolute;
+					left: 0;
+					top: 8px;
+				}
+			}
+			&.expanded {
+				background-color: #3f3f3f;
+				@include breakpoint($desktop) {
+					background-color: transparent;
+				}
+				& > .more {
+					&:before {
+						content: '\2013';
+					}
+					& + a {
+						font-weight: bold;
+					}
+				}
+				.expanded {
+					background-color: #4f4f4f;
+					.expanded {
+						background-color: #5f5f5f;
+					}
+				}
+			}
+			a {
+
+			}
+		}
+	}
+}
+
+
+/* secondary nav */
+.nav-secondary {
+	float: right;
+	li {
+		list-style-type: none;
+		display: inline-block;
+		@include after-dot;
+		.sub-menu {
+			display: none;
+		}
+		a {
+			color: $color-menu-light-link;
+			@include font-size(1.1);
+		}
+	}
+}
+
+/* mobile/tablet menu */
+.menu-toggle {
+	border: 0 none;
+	padding: 0;
+	cursor: pointer;
+	border-radius: 0;
+	box-shadow: none;
+	background-color: transparent;
+	display: none;
+	
+	@include breakpoint($mobile) {
+		display: block;
+		position: absolute;
+		top: -45px;
+		right: 65px;
+	}
+	@include breakpoint($xxsmall) {
+	
+	}
+	.icon-bar {
+		background-color: #999;
+		display: block;
+		border-radius: 1px;
+		@include breakpoint($mobile) {
+			width: 27px;
+			height: 5px;
+			& + .icon-bar {
+				margin-top: 4px;
+			}
+		}		
+	}
+	&:focus,
+	&:active {
+		box-shadow: none;
+		border: 0 none;
+		outline: none;
+	}
+}
+
+/* Footer Nav */
+.ctn-footer-social {
+	text-align: center;
+	.label {
+		color: $color-grey;
+		font-style: italic;
+		display: inline-block;
+		@include font-size(1.1);
+		@include breakpoint($mobile) {
+			display: none;
+		}
+	}
+	.menu-footer-social-menu-container {
+		display: inline-block;
+	}
+	li {
+		display: inline-block;
+		list-style-type: none;
+		margin-right: 3px;
+		&:last-child {
+			margin-right: 0;
+		}
+		@include social-icons;
+	}
+}
+
+.ctn-footer-menu {
+	@include breakpoint($mobile) {
+		display: none;
+	}
+	.menu-footer-main-navigation-container {
+		border-top: 1px solid $color-dark-grey;
+		margin-top: 25px;
+		padding-top: 22px;
+		padding-bottom: 45px;
+		width: 100%;
+		@include clearfix;
+		ul {
+			list-style-type: none;
+			margin-left: 0;
+		}
+		.menu {
+			@include layout($gridTen);
+			.ft-column {
+				@include span(2 of 10);
+				&:last-child {
+					@include last;
+				}
+				& > ul > li {
+					margin-top: 20px;
+					&:first-child {
+						margin-top: 0;
+					}
+					& > a {
+						font-weight: bold;
+					}
+				}
+				
+			}
+			a {
+				color: $color-grey;
+			} 
+		}
+	}
+}
+
+.ctn-footer-bottom {
+	background-color: $color-bg-dark;
+	text-align: center;
+	@include font-size(1.1);
+	padding: 22px 0 38px;
+	@include breakpoint($mobile) {
+		background-color: $color-link-top-nav;
+		padding: 26px 0 38px;
+	}
+	.menu {
+		margin-bottom: 6px;
+		li {
+			display: inline-block;
+			list-style-type: none;
+			@include after-dot;
+			@include breakpoint($mobile) {
+				display: block;
+				margin-bottom: 7px;
+				&:after {
+					content: '';
+					margin: 0;
+				}
+			}
+			a {
+				color: $color-grey;	
+			}
+		}
+
+	}
+}

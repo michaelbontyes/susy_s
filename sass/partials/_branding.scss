@@ -1,0 +1,16 @@
+.site-header {
+	.site-branding {
+		.site-title {
+			a {
+				display: block;
+				text-indent: -999em;
+				background-image: url(img/brands/logo-pmv.png);
+				width: 160px;
+				height: 52px;
+				@include breakpoint($mobile) {
+
+				}
+			}
+		}
+	}
+}

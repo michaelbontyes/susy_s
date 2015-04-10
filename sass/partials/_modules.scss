@@ -1,0 +1,515 @@
+/* Canadian Govt  Logo */
+.logo-can-govt {
+    background: transparent url(img/brands/logo-can-govt.png) 0 0 no-repeat;
+    width: 64px;
+    height: 17px;
+    .lang-switcher & {
+        float: right;
+    }
+    .ctn-footer-bottom & {
+        margin: 34px auto 0;
+    }
+}
+
+/* tabs and contents */
+.tab-content {
+	.tab-pane {
+		padding: 1em;
+	}
+}
+
+/* Site Search */
+
+.site-search, 
+.site-search-page {
+	padding: 0 0 0 12px;
+	position: relative;
+    @include breakpoint($mobile) {
+        display: block;
+        padding: 4px 0 0;
+    }
+	.search-ctn {
+		width: 500px;
+		position: absolute;
+		top: 72px;
+		right: 0;
+		height: 1px;
+		padding: 8px;
+		white-space: nowrap;
+		transition: all 0.6s;
+        @include breakpoint($mobile) {
+            width: 100%;
+            top: 1px;
+        }
+		&.expanded {
+            background-color: $color-bg-body;
+            box-shadow: inset 0 15px 14px -13px rgba(0, 0, 0, 0.6);
+            // background-color: rgba(180, 44, 51, 0.8);
+            height: 60px;
+            .btn-close {
+                display: block;
+            }
+            input[type="submit"] {
+                right: 20px;
+                top: 15px;
+                @include breakpoint($mobile) {
+                    right: 22px;
+                }
+            }
+		}
+	}
+    .btn-close {
+        display: none;
+        color: $color-grey;
+        @include font-size(1.2);
+        position: absolute;
+        top: 3px;
+        right: 7px;
+    }
+	input {
+		&:focus {
+			outline: 0 none;
+		}
+	}
+	label {
+		float: left;
+		margin-bottom: 0;
+		padding-top: 0;
+		input[type="search"] {
+			border: 0 none;
+			background-color: transparent;
+			color: $color-text-main;
+			margin-top: 2px;
+			height: 1px;
+            width: 400px;
+            @include font-size(2.0);
+            @include breakpoint($mobile) {
+                width: 100%;
+            }
+			&::-webkit-search-cancel-button { /* select all "X" buttons in search inputs */
+				-webkit-appearance: none; /* hide the default "X" button */
+			}
+            &::-ms-clear {
+                display: none;
+            }
+		}
+	}
+	
+	input[type="submit"] {
+		position: absolute;
+		right: 20px;
+		top: -50px;
+		padding: 3px 26px 8px 8px;
+		color: #333;
+		background: transparent url(img/icons/icon-search.png) right 6px no-repeat;
+		border: 0 none;
+		height: 30px;
+		cursor: pointer;
+        transition: all 0.3s;
+        @include breakpoint($mobile) {
+            right: 22px;
+        }
+		&:hover {
+			// color: #a9a9a9;
+			color: lighten($color-text-main, 50%)
+		}
+	}
+}
+
+.search .page-header {
+    float: left;
+}
+
+.site-search-page {
+	padding: 4px 0 20px;
+	float: right;
+	@include breakpoint($mobile) {
+		display: block;
+		padding: 4px 0 0;
+	}
+	.search-ctn {
+		width: auto;
+		position: static;
+		float: left;
+        height: auto;
+		white-space: nowrap;
+		background-color: #ececec;
+	}
+	label {
+		input[type="search"] {
+			margin-top: 0;
+			width: 300px;
+            height: auto;
+		}
+	}
+	input[type="submit"] {
+		position: static;
+		padding: 0;
+		color: transparent;
+		width: 30px;
+		&:hover {
+			color: transparent;
+			opacity: 0.5;
+		}
+	}
+
+}
+
+/* Breadcrumb Trails */
+
+.breadcrumb-trails {
+	padding-top: 9px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid $color-border-light;
+	.breadcrumb-menu {
+		li {
+			float: left;
+			@include font-size(1.2);
+			a {
+				color: $color-primary-action;
+			}
+			&.separator {
+				margin: 0 6px 0 6px;
+			}
+		}
+	}
+	@include breakpoint($mobile) {
+		display: none;
+	}
+}
+
+
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
+.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
+	display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	@include center-block;
+}
+
+/* Text meant only for screen readers */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: $color-bg-body;
+		border-radius: 3px;
+		box-shadow: 0 0 2px 2px rgba(200, 0, 0, 0.9);
+		clip: auto !important;
+		color: $color-text-main;
+		display: block;
+		@include font-size(1.4);
+		font-weight: bold;
+		height: auto;
+		left: 5px;
+		line-height: normal;
+		padding: 15px 23px 14px;
+		text-decoration: none;
+		top: 5px;
+		width: auto;
+		z-index: 100000; /* Above WP toolbar */
+	}
+}
+
+
+
+/* ==========================================================================
+   Banner
+   ========================================================================== */
+
+.jcarousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    overflow: hidden;
+}
+ 
+/** Carousel **/
+
+.jcarousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.jcarousel ul {
+    width: 20000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.jcarousel li {
+    float: left;
+    position: relative;
+    overflow: hidden;
+
+    h1, h2 {
+        display: inline-block;
+        font-size: 42px;
+        color: #fff;
+        font-weight: 800;
+        text-transform: uppercase;
+        margin: 20px 0 0;
+        padding: 26px 0;
+    }
+
+    h2 {
+        
+    }
+
+    p {
+        font: 18px/20px;
+        margin-top: 0;
+    }
+
+    .button {
+        color: #fff;
+        border:2px solid #fff;
+        box-shadow: -1px 1px 2px #fff;
+
+        &:hover {
+            box-shadow:inset -1px 1px 2px #fff;
+        }
+    }
+
+    &.no-text {
+        h1, h2 {
+            padding: 16px 0;
+            border-top: 1px solid #fff;
+            border-top: 1px solid rgba(255,255,255,128);
+        }
+    }
+    .sub-caption {
+        max-width: 520px;
+        margin: 0 auto;
+        @include font-size(1.6);
+    }
+}
+
+.jcarousel .slide {
+    display: block;
+    max-width: 100%;
+    height: 520px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.jcarousel  .slide-inner {
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.jcarousel .slide.no-slides {
+    background-color: #f26521;
+}
+
+/** Carousel Controls **/
+
+// .jcarousel-control-prev,
+// .jcarousel-control-next {
+//     position: absolute;
+//     top: 50%;
+//     transform: translate(0, -50%);
+
+//     width: 40px;
+//     height: 50px;
+//     padding-left: 10px;
+//     padding-top: 10px;
+//     text-align: center;
+//     color: #fff;
+//     text-decoration: none;
+    
+//     &:before {
+//         content: "";
+//         border: 2px solid #fff;
+//         border-bottom: none;
+//         border-right: none;
+//         width: 35px;
+//         height: 35px;
+//         display: block;
+//         transform: rotate(-45deg);
+//     }
+
+//     &:hover {
+//         color: #fff;
+//     }
+// }
+
+// .jcarousel-control-prev {
+//     left: 20px;
+// }
+
+// .jcarousel-control-next {
+//     right: 35px;
+
+//     &:before {
+//         transform: rotate(135deg);
+//     }
+// }
+
+// .jcarousel-control-prev:hover span,
+// .jcarousel-control-next:hover span {
+//     display: block;
+// }
+
+// .jcarousel-control-prev.inactive,
+// .jcarousel-control-next.inactive {
+//     opacity: .5;
+//     cursor: default;
+// }
+
+
+/** Carousel Pagination **/
+
+.jcarousel-pagination {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin: 150px auto 0;
+    width: 100%;
+    text-align: center;
+}
+
+.jcarousel-pagination a {
+    text-decoration: none;
+    display: inline-block;
+    
+    font-size: 0px;
+    line-height: 8px;
+    text-indent: -500em;
+    min-width: 8px;
+    height: 8px;
+    background: none;
+    border: 3px solid #ffffff;
+    border-radius: 14px;
+    padding: 3px;
+    text-align: center;
+    margin: 0 3px;
+    opacity: .5;
+}
+
+.jcarousel-pagination a.active {
+    background: #ffffff;
+    opacity: 1;
+}
+
+.ctn-carousel-btns {
+    background: $color-light-grey;
+}
+
+.jcarousel-pagination-bottom {
+    list-style-type: none;
+    @include layout($gridNoGutter);
+    &.col-2-layout {
+        li {
+            @include span(6 of 12);
+        }
+    }
+    &.col-3-layout {
+        li {
+            @include span(4 of 12);
+        }
+    }
+    &.col-4-layout {
+        li {
+            @include span(3 of 12);
+        }
+    }
+    li {
+        
+        &:last-child {
+            @include last;
+            a {
+                border-right: 1px solid #d8d8d8;
+            }
+        }
+        .progress-bar {
+            display: block;
+            position: relative;
+            height: 4px;
+            width: 0%;
+        }
+        a {
+            display: block;
+            height: 50px;
+            color: $color-menu-link;
+            @include font-size(1.0);
+            padding: 13px 0 0 9px;
+            border-left: 1px solid #d8d8d8;
+        }
+        &.active {
+            .progress-bar {
+                transition: 6s linear;
+                transition-property: width;
+                background-color: $color-link;
+                width: 100%;
+            }
+        }
+        &.done {
+            .progress-bar {
+                background-color: $color-link;
+                width: 100%;
+            }
+        }
+    }
+} 
+
+
+/* Text meant only for screen readers */
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: #fff;
+        box-shadow: 0 0 2px 2px rgba(200, 0, 0, 0.9);
+        clip: auto !important;
+        display: block;
+        font-weight: bold;
+        height: auto;
+        left: 5px;
+        line-height: normal;
+        padding: 15px 23px 14px;
+        text-decoration: none;
+        top: 5px;
+        width: auto;
+        z-index: 100000; /* Above WP toolbar */
+    }
+}

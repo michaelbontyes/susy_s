@@ -1,0 +1,70 @@
+button,
+input,
+select,
+textarea {
+	font-size: 100%; /* Corrects font size not being inherited in all browsers */
+	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
+	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
+}
+
+input[type="search"] {
+	.site-search & {
+		visibility: hidden;
+		float: right;
+		width: 1px;
+	}
+} 
+
+.form-unit {
+	width: 100%;
+	margin-bottom: 13px;
+	@include clearfix;
+}
+
+label {
+	text-align: right;
+	padding-top: 7px;
+}
+
+select, 
+input,
+textarea {
+	&.bits-FormControl {
+		background-color: $color-bg-form;
+		border-radius: 0;
+		height: 38px;
+		border: 0 none;
+	}
+}
+
+textarea {
+	&.bits-FormControl {
+		height: auto;
+	}
+}
+
+.bits-FormControl.btn-submit {
+	background-color: #d12a2f;
+	color: #fff;
+}
+
+select[disabled] {
+	font-style: italic;
+	color: lighten($color-text-main, 50%);
+}
+
+/* placeholder color rules */
+::-webkit-input-placeholder { color: lighten($color-text-main, 50%); }
+::-moz-placeholder { color: lighten($color-text-main, 50%); }
+:-ms-input-placeholder { color: lighten($color-text-main, 50%); }
+input:-moz-placeholder { color: lighten($color-text-main, 50%); }
+:focus::-webkit-input-placeholder{ color: transparent; }
+
+#loading {
+    background: url('img/loading-big.gif') no-repeat center center;
+    background-size: 100px 100px;
+	width: 100px;
+	height: 100px;
+	margin: 50px 50%;
+	display: none;
+}
